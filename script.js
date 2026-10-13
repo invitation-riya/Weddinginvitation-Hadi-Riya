@@ -1,183 +1,483 @@
 /* =========================================================
-   KONFIGURASI — edit bagian ini saja
+   UNDANGAN HADI & RIYA — JavaScript yang diperbaiki
+   Simpan file ini sebagai script.js di folder yang sama dengan index.html.
+   RSVP dan ucapan tetap mode lokal sampai backendUrl diisi dengan URL Web App.
    ========================================================= */
 const CONFIG = {
-  groom: { short: "Hadi", full: "Hadianto Kurniawan Tan", parents: "Putra dari Bapak Tan Tjoen Hwa & Ibu Tjhin Tjhiu Loe", photo: "hadi.jpg" },
-  bride: { short: "Riya", full: "Ilmi Riadoh", parents: "Putri dari Alm. Bapak Muhammad Saleh & Ibu Nuralam Rangkuti", photo: "Riya.jpg" },
+  groom: {
+    short: "Hadi",
+    full: "Hadianto Kurniawan Tan",
+    parents: "Putra dari Bapak Tan Tjoen Hwa & Ibu Tjhin Tjhiu Loe",
+    photo: "hadi.jpg"
+  },
+  bride: {
+    short: "Riya",
+    full: "Ilmi Riadoh",
+    parents: "Putri dari Alm. Bapak Muhammad Saleh & Ibu Nuralam Rangkuti",
+    photo: "Riya.jpg"
+  },
   displayName: "Hadi & Riya",
-
   event: {
     type: "Pemberkatan",
-    date: "2026-12-12",          // format YYYY-MM-DD
-    hour: 12, minute: 0,         // jam mulai 12:00
-    endHour: 15, endMinute: 0,   // jam selesai 15:00
-    timezone: "+07:00",          // WIB
+    date: "2026-12-12",
+    hour: 12,
+    minute: 0,
+    endHour: 15,
+    endMinute: 0,
+    timezone: "+07:00",
     timezoneLabel: "WIB",
     place: "Vihara Sila Paramita",
-    address: "Jl. Cipinang Jaya Raya No.1, RT.9/RW.7, Cipinang Besar Sel., Kecamatan Jatinegara, Kota Jakarta Timur",
-    mapUrl: "https://www.google.com/search?client=ms-android-oppo-terr1-rso2&hs=UqSB&sca_esv=625741e31c07c5f2&sxsrf=APpeQntpse-SGIxQ2FalxA-8Osb68DwIDw%3A1791768086280&kgmid=%2Fg%2F11x8qq21gy&q=Vihara%20Sila%20Paramita&shem=epsd1%2Cltae%2Crimspwouoe&shndl=30&source=sh%2Fx%2Floc%2Fact%2Fm1%2F2&kgs=501303c258c4ea3a",
-    
+    address: "Jl. Cipinang Jaya Raya No.1, RT.9/RW.7, Cipinang Besar Selatan, Kecamatan Jatinegara, Kota Jakarta Timur",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Vihara+Sila+Paramita+Jakarta+Timur"
   },
-
   storyHead: {
     title: "Our Love Story",
     subtitle: "Dari pertemuan menjadi perjalanan.",
-    intro: "“Dari sebuah pertemuan sederhana, dimulailah sebuah perjalanan yang perlahan menjadi begitu berarti. First Meeting menjadi awal dari sebuah cerita, ketika dua hati dipertemukan dan mulai mengenal satu sama lain. Seiring waktu, tumbuh sebuah keyakinan melalui The Promise, bahwa perjalanan ini layak untuk diperjuangkan bersama. Hingga tiba di Engagement, satu langkah lebih dekat menuju hari yang telah lama dinantikan, menyatukan harapan dan impian dalam satu tujuan. Dan akhirnya, Our Wedding menjadi hari ketika sebuah janji diucapkan, bukan hanya untuk hari ini, tetapi untuk menjadi keluarga, saling menjaga, saling menguatkan, dan berjalan bersama menuju selamanya.”"
+    intro: "Dari sebuah pertemuan sederhana, dimulailah sebuah perjalanan yang perlahan menjadi begitu berarti. First Meeting menjadi awal dari sebuah cerita, ketika dua hati dipertemukan dan mulai mengenal satu sama lain. Seiring waktu, tumbuh sebuah keyakinan melalui The Promise, bahwa perjalanan ini layak untuk diperjuangkan bersama. Hingga tiba di Engagement, satu langkah lebih dekat menuju hari yang telah lama dinantikan, menyatukan harapan dan impian dalam satu tujuan. Dan akhirnya, Our Wedding menjadi hari ketika sebuah janji diucapkan, bukan hanya untuk hari ini, tetapi untuk menjadi keluarga, saling menjaga, saling menguatkan, dan berjalan bersama menuju selamanya."
   },
-  // "date" boleh dikosongkan
   story: [
     { date: "", title: "First Meeting", text: "Awal dari sebuah cerita yang sederhana, namun menjadi begitu berarti." },
     { date: "", title: "The Promise", text: "Saat dua hati mulai yakin bahwa perjalanan ini layak diperjuangkan bersama." },
     { date: "", title: "Engagement", text: "Satu langkah lebih dekat menuju hari yang telah lama dinantikan." },
     { date: "", title: "Our Wedding", text: "Hari ketika sebuah janji diucapkan untuk menjadi keluarga selamanya." }
   ],
-
-  // Nama file foto (satu folder dengan index.html)
-  gallery: ["foto1.jpg","fpjang1.jpg","foto2.jpg","foto3.jpg","fpjang2.jpg","foto4.jpg","foto5.jpg"],   // "fpjang" = foto panjang (tampil tinggi)
-
-  // Daftar rekening / e-wallet — ganti dengan data asli
+  gallery: ["foto1.jpg", "fpjang1.jpg", "foto2.jpg", "foto3.jpg", "fpjang2.jpg", "foto4.jpg", "foto5.jpg"],
   gifts: [
     { bank: "BCA", number: "4960141968", name: "Hadianto Kurniawan Tan" },
     { bank: "BCA", number: "2680150420", name: "Ilmi Riadoh" }
   ],
-
-  // Foto latar pegunungan milik Anda (opsional). Jika file ada, menggantikan ilustrasi bawaan mountain.svg
   bgPhoto: "gunung.jpg",
-
   greeting: {
     salam: "Salam sejahtera, semoga semua makhluk berbahagia",
     title: "Dengan Penuh Sukacita",
-    text: "Dengan memohon berkah Tuhan Yang Maha Esa dan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari pemberkatan pernikahan kami.",
-    verse: "“Semoga cinta yang tulus menuntun langkah kami dalam kebajikan, kebijaksanaan, dan kebahagiaan.”"
+    text: "Dengan memohon berkah Tuhan Yang Maha Esa, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari pemberkatan pernikahan kami.",
+    verse: "Semoga cinta yang tulus menuntun langkah kami dalam kebajikan, kebijaksanaan, dan kebahagiaan."
   },
-
   closing: "Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. Atas kehadiran dan doanya, kami ucapkan terima kasih.",
-
-  music: { src: "Ka.mp3", volume: 0.6 },   // taruh file MP3 sendiri (bebas hak cipta / berlisensi)
-
-  /* URL Google Apps Script Web App (lihat petunjuk). Kosongkan = BELUM terhubung:
-     RSVP & ucapan hanya tersimpan di browser perangkat ini, tidak online. */
+  music: { src: "Ka.mp3", volume: 0.6 },
+  // Isi dengan URL Google Apps Script Web App setelah backend disiapkan.
+  // Jika kosong, RSVP dan ucapan hanya tersimpan pada browser perangkat tamu.
   backendUrl: ""
 };
 
-/* ========================================================= */
-const $ = (s, r = document) => r.querySelector(s);
+const $ = (selector, root = document) => root.querySelector(selector);
 const E = CONFIG.event;
-const start = new Date(`${E.date}T${String(E.hour).padStart(2,"0")}:${String(E.minute).padStart(2,"0")}:00${E.timezone}`);
-const fmt = (o) => start.toLocaleDateString("id-ID", { timeZone: "Asia/Jakarta", ...o });
-const p2 = (n) => String(n).padStart(2, "0");
-const timeStr = `${p2(E.hour)}.${p2(E.minute)} - ${p2(E.endHour)}.${p2(E.endMinute)} ${E.timezoneLabel}`;
-const esc = (t) => String(t).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 2200); };
+const pad2 = n => String(n).padStart(2, "0");
+const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[char]));
+const start = new Date(`${E.date}T${pad2(E.hour)}:${pad2(E.minute)}:00${E.timezone}`);
+const end = new Date(`${E.date}T${pad2(E.endHour)}:${pad2(E.endMinute)}:00${E.timezone}`);
+const dateFormatter = new Intl.DateTimeFormat("id-ID", { timeZone: "Asia/Jakarta" });
+const formatDate = options => new Intl.DateTimeFormat("id-ID", { timeZone: "Asia/Jakarta", ...options }).format(start);
+const timeText = `${pad2(E.hour)}.${pad2(E.minute)}–${pad2(E.endHour)}.${pad2(E.endMinute)} ${E.timezoneLabel}`;
+const toast = message => {
+  const el = $("#toast");
+  if (!el) return;
+  el.textContent = message;
+  el.classList.add("show");
+  window.setTimeout(() => el.classList.remove("show"), 2400);
+};
 
-/* --- isi data --- */
-const binds = {
+// Isi teks dasar
+const bindings = {
   shortNames: CONFIG.displayName,
-  dateShort: fmt({ day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, "."),
-  dateLong: fmt({ weekday: "long", day: "numeric", month: "long", year: "numeric" }),
+  dateShort: formatDate({ day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, "."),
+  dateLong: formatDate({ weekday: "long", day: "numeric", month: "long", year: "numeric" }),
   fullNames: `${CONFIG.groom.full} & ${CONFIG.bride.full}`
 };
-document.querySelectorAll("[data-bind]").forEach(el => el.textContent = binds[el.dataset.bind]);
+document.querySelectorAll("[data-bind]").forEach(el => {
+  const value = bindings[el.dataset.bind];
+  if (value != null) el.textContent = value;
+});
 document.title = `Undangan Pernikahan ${CONFIG.displayName}`;
 
-[["groom", CONFIG.groom], ["bride", CONFIG.bride]].forEach(([k, p]) => {
-  $("#" + k + "Short").textContent = p.short;
-  $("#" + k + "Full").textContent = p.full;
-  $("#" + k + "Parents").textContent = p.parents;
-  const img = $("#" + k + "Photo"); img.src = p.photo;
-  img.onerror = () => { img.removeAttribute("src"); };
-});
-$("#eventType").textContent = E.type;
-$("#eventDate").textContent = binds.dateLong;
-$("#eventTime").textContent = `Pukul ${timeStr}`;
-$("#eventPlace").textContent = E.place;
-$("#eventAddr").textContent = E.address;
-$("#mapBtn").href = E.mapUrl;
-
-// Kalender (Google Calendar)
-const iso = (d) => d.toISOString().replace(/[-:]|\.\d{3}/g, "");
-const end = new Date(`${E.date}T${p2(E.endHour)}:${p2(E.endMinute)}:00${E.timezone}`);
-$("#calBtn").href = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-  `&text=${encodeURIComponent(E.type + " " + CONFIG.displayName)}&dates=${iso(start)}/${iso(end)}` +
-  `&location=${encodeURIComponent(E.place + ", " + E.address)}`;
-
-// Nama tamu dari link: ?to=Nama+Tamu
-const to = new URLSearchParams(location.search).get("to");
-if (to) $("#guestName").textContent = to;
-
-/* --- cerita, galeri, hadiah --- */
-$("#storyTitle").textContent = CONFIG.storyHead.title;
-$("#storySub").textContent = CONFIG.storyHead.subtitle;
-$("#storyIntro").textContent = CONFIG.storyHead.intro;
-$("#timeline").innerHTML = CONFIG.story.map(s =>
-  `<div class="tl-item">${s.date ? `<time>${esc(s.date)}</time>` : ""}<h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join("");
-
-$("#galleryGrid").innerHTML = CONFIG.gallery.map((src, i) =>
-  `<button type="button" class="${/fpjang/i.test(src) ? "tall" : ""}" data-src="${esc(src)}" aria-label="Lihat foto ${i + 1}"><img src="${esc(src)}" alt="Foto prewedding ${i + 1}" loading="lazy"></button>`).join("");
-const lb = $("#lightbox");
-$("#galleryGrid").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  lb.querySelector("img").src = b.dataset.src; lb.hidden = false;
-});
-lb.addEventListener("click", () => lb.hidden = true);
-document.addEventListener("keydown", e => { if (e.key === "Escape") lb.hidden = true; });
-
-$("#giftList").innerHTML = CONFIG.gifts.map(g => `
-  <div class="gift">
-    <div class="card">
-      <div class="card-top"><b>${esc(g.bank)}</b><span>Hadiah Digital</span></div>
-      <i class="chip"></i>
-      <div class="card-no">${esc(g.number).replace(/(.{4})/g, "$1 ").trim()}</div>
-      <div class="card-name">${esc(g.name)}</div>
-    </div>
-    <button class="btn" type="button" data-copy="${esc(g.number)}">Salin Nomor Rekening</button>
-  </div>`).join("");
-$("#giftList").addEventListener("click", async e => {
-  const b = e.target.closest("[data-copy]"); if (!b) return;
-  try { await navigator.clipboard.writeText(b.dataset.copy); toast("Nomor disalin"); }
-  catch { toast("Salin manual: " + b.dataset.copy); }
+// Nama dan foto mempelai
+[["groom", CONFIG.groom], ["bride", CONFIG.bride]].forEach(([key, person]) => {
+  const short = $("#" + key + "Short");
+  const full = $("#" + key + "Full");
+  const parents = $("#" + key + "Parents");
+  const photo = $("#" + key + "Photo");
+  if (short) short.textContent = person.short;
+  if (full) full.textContent = person.full;
+  if (parents) parents.textContent = person.parents;
+  if (photo) {
+    photo.src = person.photo;
+    photo.onerror = () => { photo.removeAttribute("src"); };
+  }
 });
 
-/* --- cover & musik --- */
-const audio = $("#bgm"), mBtn = $("#musicBtn");
-audio.src = CONFIG.music.src; audio.volume = CONFIG.music.volume;
-function setMusic(on) {
-  if (on) audio.play().then(() => { mBtn.classList.add("on"); mBtn.textContent = "♪"; }).catch(() => toast("File musik tidak ditemukan"));
-  else { audio.pause(); mBtn.classList.remove("on"); mBtn.textContent = "▶"; }
+// Detail acara
+[["#eventType", E.type], ["#eventDate", bindings.dateLong], ["#eventTime", `Pukul ${timeText}`], ["#eventPlace", E.place], ["#eventAddr", E.address]].forEach(([selector, value]) => {
+  const el = $(selector);
+  if (el) el.textContent = value;
+});
+const mapButton = $("#mapBtn");
+if (mapButton) {
+  mapButton.href = E.mapUrl;
+  mapButton.target = "_blank";
+  mapButton.rel = "noopener noreferrer";
 }
-mBtn.addEventListener("click", () => setMusic(audio.paused));
-$("#openBtn").addEventListener("click", () => {
-  $("#cover").classList.add("open");
-  document.body.classList.remove("locked");
-  mBtn.hidden = false;
-  audio.load(); setMusic(true);
-  setTimeout(() => $("#cover").style.display = "none", 950);
+
+// Google Calendar: gunakan waktu UTC yang dihitung dari tanggal dengan offset WIB.
+const calendarStamp = date => date.toISOString().replace(/[-:]|\.\d{3}/g, "");
+const calendarButton = $("#calBtn");
+if (calendarButton) {
+  const calendarParams = new URLSearchParams({
+    action: "TEMPLATE",
+    text: `${E.type} ${CONFIG.displayName}`,
+    dates: `${calendarStamp(start)}/${calendarStamp(end)}`,
+    details: `Pemberkatan pernikahan ${CONFIG.displayName}.`,
+    location: `${E.place}, ${E.address}`,
+    ctz: "Asia/Jakarta"
+  });
+  calendarButton.href = `https://calendar.google.com/calendar/render?${calendarParams.toString()}`;
+  calendarButton.target = "_blank";
+  calendarButton.rel = "noopener noreferrer";
+}
+
+// Nama tamu dari URL, contoh: ?to=Bapak%20Andi
+const guest = new URLSearchParams(window.location.search).get("to");
+if (guest && $("#guestName")) $("#guestName").textContent = guest.replace(/\+/g, " ").trim() || "Tamu Undangan";
+
+// Cerita cinta dan timeline
+if ($("#storyTitle")) $("#storyTitle").textContent = CONFIG.storyHead.title;
+if ($("#storySub")) $("#storySub").textContent = CONFIG.storyHead.subtitle;
+if ($("#storyIntro")) $("#storyIntro").textContent = `“${CONFIG.storyHead.intro}”`;
+if ($("#timeline")) {
+  $("#timeline").innerHTML = CONFIG.story.map(item =>
+    `<div class="tl-item">${item.date ? `<time>${escapeHTML(item.date)}</time>` : ""}<h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.text)}</p></div>`
+  ).join("");
+}
+
+// Galeri dan lightbox
+const galleryGrid = $("#galleryGrid");
+const lightbox = $("#lightbox");
+if (galleryGrid) {
+  galleryGrid.innerHTML = CONFIG.gallery.map((src, index) =>
+    `<button type="button" class="${/fpjang/i.test(src) ? "tall" : ""}" data-src="${escapeHTML(src)}" aria-label="Lihat foto ${index + 1}"><img src="${escapeHTML(src)}" alt="Foto prewedding ${index + 1}" loading="lazy"></button>`
+  ).join("");
+  galleryGrid.addEventListener("click", event => {
+    const button = event.target.closest("button[data-src]");
+    if (!button || !lightbox) return;
+    const image = $("img", lightbox);
+    if (image) image.src = button.dataset.src;
+    lightbox.hidden = false;
+  });
+}
+if (lightbox) {
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox || event.target.closest("button")) lightbox.hidden = true;
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") lightbox.hidden = true;
+  });
+}
+
+// Kartu hadiah dan tombol salin rekening
+const giftList = $("#giftList");
+if (giftList) {
+  giftList.innerHTML = CONFIG.gifts.map(gift => `
+    <div class="gift">
+      <div class="card">
+        <div class="card-top"><b>${escapeHTML(gift.bank)}</b><span>Hadiah Digital</span></div>
+        <i class="chip" aria-hidden="true"></i>
+        <div class="card-no">${escapeHTML(gift.number.replace(/(.{4})/g, "$1 ").trim())}</div>
+        <div class="card-name">${escapeHTML(gift.name)}</div>
+      </div>
+      <button class="btn" type="button" data-copy="${escapeHTML(gift.number)}">Salin Nomor Rekening</button>
+    </div>`).join("");
+  giftList.addEventListener("click", async event => {
+    const button = event.target.closest("[data-copy]");
+    if (!button) return;
+    const number = button.dataset.copy;
+    try {
+      if (!navigator.clipboard || !window.isSecureContext) throw new Error("Clipboard tidak tersedia");
+      await navigator.clipboard.writeText(number);
+      toast("Nomor rekening berhasil disalin");
+    } catch {
+      window.prompt("Salin nomor rekening berikut:", number);
+    }
+  });
+}
+
+// Musik dan buka undangan
+const audio = $("#bgm");
+const musicButton = $("#musicBtn");
+if (audio) {
+  audio.src = CONFIG.music.src;
+  audio.volume = Math.max(0, Math.min(1, Number(CONFIG.music.volume) || 0.6));
+}
+async function setMusic(shouldPlay) {
+  if (!audio || !musicButton) return;
+  if (!shouldPlay) {
+    audio.pause();
+    musicButton.classList.remove("on");
+    musicButton.textContent = "▶";
+    return;
+  }
+  try {
+    await audio.play();
+    musicButton.classList.add("on");
+    musicButton.textContent = "♪";
+  } catch {
+    musicButton.classList.remove("on");
+    musicButton.textContent = "▶";
+    toast("Musik belum dapat diputar. Periksa file Ka.mp3.");
+  }
+}
+if (musicButton) musicButton.addEventListener("click", () => setMusic(!!audio && audio.paused));
+
+// Animasi scroll observer
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const observer = "IntersectionObserver" in window ? new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 }) : null;
+document.querySelectorAll(".reveal").forEach(el => {
+  if (reducedMotion || !observer) el.classList.add("in");
+  else observer.observe(el);
 });
 
-/* --- hitung mundur --- */
-function tick() {
-  let d = Math.max(0, start - Date.now()) / 1000;
-  const v = { d: Math.floor(d / 86400), h: Math.floor(d % 86400 / 3600), m: Math.floor(d % 3600 / 60), s: Math.floor(d % 60) };
-  for (const k in v) $("#cd-" + k).textContent = v[k];
+// Hitung mundur ke waktu pemberkatan (WIB)
+function updateCountdown() {
+  const remaining = Math.max(0, start.getTime() - Date.now());
+  const seconds = Math.floor(remaining / 1000);
+  const values = {
+    d: Math.floor(seconds / 86400),
+    h: Math.floor((seconds % 86400) / 3600),
+    m: Math.floor((seconds % 3600) / 60),
+    s: seconds % 60
+  };
+  Object.entries(values).forEach(([key, value]) => {
+    const el = $("#cd-" + key);
+    if (el) el.textContent = String(value);
+  });
 }
-tick(); setInterval(tick, 1000);
+updateCountdown();
+window.setInterval(updateCountdown, 1000);
 
-/* --- animasi masuk --- */
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+// RSVP dan ucapan: lokal jika backendUrl belum diisi.
+const STORAGE = { wishes: "undangan_wishes", rsvp: "undangan_rsvp" };
+const online = /^https:\/\//i.test(CONFIG.backendUrl.trim());
+const storageInfo = $("#storageInfo");
+if (storageInfo) {
+  storageInfo.textContent = online
+    ? "Ucapan akan disimpan melalui layanan online."
+    : "Penyimpanan online belum diaktifkan. Ucapan hanya tersimpan pada browser perangkat ini dan tidak terlihat oleh tamu lain.";
+}
+function readLocal(key) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key) || "[]");
+    return Array.isArray(value) ? value : [];
+  } catch { return []; }
+}
+function writeLocal(key, items) {
+  try { localStorage.setItem(key, JSON.stringify(items)); return true; }
+  catch { return false; }
+}
+async function sendData(type, data) {
+  if (!online) {
+    const items = readLocal(STORAGE[type]);
+    items.unshift({ ...data, time: Date.now() });
+    if (!writeLocal(STORAGE[type], items.slice(0, 200))) throw new Error("Penyimpanan browser penuh atau tidak tersedia");
+    return;
+  }
+  const response = await fetch(CONFIG.backendUrl, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ type, ...data })
+  });
+  if (!response.ok) throw new Error("Server tidak merespons dengan baik");
+  const result = await response.json();
+  if (!result.ok) throw new Error(result.error || "Gagal menyimpan data");
+}
+function renderWishes(items) {
+  const list = $("#wishList");
+  if (!list) return;
+  if (!items.length) {
+    list.innerHTML = "<li><p>Belum ada ucapan. Jadilah yang pertama.</p></li>";
+    return;
+  }
+  list.innerHTML = items.map(item => {
+    const timestamp = Number(item.time);
+    const dateLabel = Number.isFinite(timestamp) && timestamp > 0
+      ? new Date(timestamp).toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short" })
+      : "";
+    return `<li><b>${escapeHTML(item.name)}</b><small>${escapeHTML(dateLabel)}</small><p>${escapeHTML(item.message)}</p></li>`;
+  }).join("");
+}
+async function loadWishes() {
+  if (!online) {
+    renderWishes(readLocal(STORAGE.wishes));
+    return;
+  }
+  try {
+    const response = await fetch(`${CONFIG.backendUrl}?action=wishes`, { cache: "no-store" });
+    if (!response.ok) throw new Error("Gagal memuat ucapan");
+    const result = await response.json();
+    renderWishes(Array.isArray(result.wishes) ? result.wishes : []);
+  } catch {
+    const list = $("#wishList");
+    if (list) list.innerHTML = "<li><p>Ucapan belum dapat dimuat. Silakan muat ulang halaman beberapa saat lagi.</p></li>";
+  }
+}
+loadWishes();
 
-/* --- RSVP & ucapan --- */
-const LS = { wishes: "undangan_wishes", rsvp: "undangan_rsvp" };
-const online = !!CONFIG.backendUrl;
-$("#storageInfo").textContent = online
-  ? "Ucapan tersimpan online dan dapat dilihat semua tamu."
-  : "Mode lokal: backend belum terhubung, sehingga ucapan hanya tersimpan di perangkat ini dan tidak dilihat tamu lain.";
+function setupForm(formSelector, noteSelector, type, buildData, successMessage) {
+  const form = $(formSelector);
+  const note = $(noteSelector);
+  if (!form || !note) return;
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    const fields = Object.fromEntries(new FormData(form));
+    const name = String(fields.name || "").trim();
+    const message = String(fields.message || "").trim();
+    if (!name || (type === "wishes" && !message)) {
+      note.textContent = "Mohon lengkapi semua kolom yang wajib diisi.";
+      note.className = "note err";
+      return;
+    }
+    if (type === "rsvp") {
+      const guests = Number(fields.guests);
+      if (!Number.isInteger(guests) || guests < 1 || guests > 5) {
+        note.textContent = "Jumlah tamu harus antara 1 sampai 5 orang.";
+        note.className = "note err";
+        return;
+      }
+    }
+    if (type === "wishes" && message.length > 300) {
+      note.textContent = "Ucapan maksimal 300 karakter.";
+      note.className = "note err";
+      return;
+    }
+    const button = $("button[type='submit']", form);
+    if (button) button.disabled = true;
+    note.className = "note";
+    note.textContent = "Sedang menyimpan...";
+    try {
+      await sendData(type, buildData(fields));
+      note.textContent = successMessage;
+      form.reset();
+      if (type === "wishes") await loadWishes();
+    } catch (error) {
+      note.textContent = online
+        ? "Data belum berhasil dikirim. Periksa koneksi atau konfigurasi server, lalu coba lagi."
+        : "Data tidak berhasil disimpan pada perangkat ini. Coba lagi.";
+      note.className = "note err";
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+}
+setupForm("#rsvpForm", "#rsvpNote", "rsvp",
+  fields => ({ name: String(fields.name).trim(), attend: fields.attend, guests: Number(fields.guests) || 1 }),
+  online ? "Terima kasih, konfirmasi kehadiran Anda sudah terkirim." : "Konfirmasi tersimpan di browser ini saja; penyimpanan online belum diaktifkan."
+);
+setupForm("#wishForm", "#wishNote", "wishes",
+  fields => ({ name: String(fields.name).trim(), message: String(fields.message).trim() }),
+  online ? "Terima kasih atas ucapan dan doanya." : "Ucapan ditampilkan di bawah dan hanya tersimpan di browser ini."
+);
 
-const local = (k) => { try { return JSON.parse(localStorage.getItem(k)) || []; } catch { return []; } };
-const saveLocal = (k, arr) => { try { localStorage.setItem(k, JSON.stringify(arr)); } catch {} };
+// Salam pembuka dan penutup
+const greeting = CONFIG.greeting;
+if ($("#gSalam")) $("#gSalam").textContent = greeting.salam;
+if ($("#gTitle")) $("#gTitle").textContent = greeting.title;
+if ($("#gText")) $("#gText").textContent = greeting.text;
+if ($("#gVerse")) $("#gVerse").textContent = `“${greeting.verse}”`;
+if ($("#closingText")) $("#closingText").textContent = CONFIG.closing;
 
-async function send(type, data) {
-  if (!online) { const arr = local(LS[type]); arr.unshift({ ...data, time: Date.now() }); saveLocal(LS[type], arr.slice(0, 200)); return; }
+// Foto latar opsional; bila gagal dimuat, CSS tetap memakai mountain.svg.
+if (CONFIG.bgPhoto) {
+  const backgroundImage = new Image();
+  backgroundImage.onload = () => {
+    document.documentElement.style.setProperty("--bg-img", `url("${CONFIG.bgPhoto}")`);
+    document.body.classList.add("has-photo");
+  };
+  backgroundImage.onerror = () => document.body.classList.remove("has-photo");
+  backgroundImage.src = CONFIG.bgPhoto;
+}
+
+// Tombol buka undangan — satu handler saja untuk menghindari perilaku ganda.
+const openButton = $("#openBtn");
+const cover = $("#cover");
+const bottomNav = $("#bottomNav");
+const scrollButton = $("#scrollBtn");
+if (openButton) {
+  openButton.addEventListener("click", () => {
+    if (cover) cover.classList.add("open");
+    document.body.classList.remove("locked");
+    if (musicButton) musicButton.hidden = false;
+    if (bottomNav) bottomNav.hidden = false;
+    if (scrollButton) scrollButton.hidden = false;
+    if (audio) audio.load();
+    setMusic(true);
+    startLeaves();
+    window.setTimeout(() => { if (cover) cover.style.display = "none"; }, 950);
+    if (AUTOSCROLL.enabled && !reducedMotion) {
+      window.setTimeout(() => {
+        window.scrollTo(0, 0);
+        setAutoScroll(true, true);
+      }, 2500);
+    }
+  }, { once: true });
+}
+
+// Animasi daun jatuh
+function startLeaves() {
+  const container = $("#fall");
+  if (!container || reducedMotion || container.childElementCount) return;
+  const colors = ["#a9b8a0", "#5f7d66", "#2c4636", "#d8bd7e"];
+  for (let index = 0; index < 14; index++) {
+    const leaf = document.createElement("i");
+    const size = 10 + Math.random() * 14;
+    Object.assign(leaf.style, {
+      left: `${Math.random() * 100}%`, width: `${size}px`, height: `${size}px`,
+      background: colors[index % colors.length],
+      animationDuration: `${12 + Math.random() * 12}s`,
+      animationDelay: `${-Math.random() * 20}s`
+    });
+    container.appendChild(leaf);
+  }
+}
+
+// Gulir otomatis dengan jeda ketika pengguna menyentuh layar atau mengisi formulir.
+const AUTOSCROLL = { enabled: true, speed: 45, resumeAfter: 3000 };
+let autoScrollOn = false;
+let autoScrollPaused = false;
+let autoScrollFrame = 0;
+let previousFrameTime = 0;
+let scrollRemainder = 0;
+let resumeTimer = 0;
+function setAutoScroll(enabled, quiet = false) {
+  autoScrollOn = enabled && !reducedMotion;
+  if (scrollButton) {
+    scrollButton.classList.toggle("on", autoScrollOn);
+    scrollButton.setAttribute("aria-pressed", String(autoScrollOn));
+    scrollButton.textContent = autoScrollOn ? "⏸" : "⇩";
+  }
+  document.documentElement.style.scrollBehavior = autoScrollOn ? "auto" : "";
+  if (autoScrollFrame) cancelAnimationFrame(autoScrollFrame);
+  previousFrameTime = 0;
+  if (autoScrollOn) autoScrollFrame = requestAnimationFrame(autoScrollLoop);
+  else autoScrollFrame = 0;
+  if (!quiet) toast(autoScrollOn ? "Gulir otomatis aktif" : "Gulir otomatis dimatikan");
+}
+function autoScrollLoop(timestamp) {
+  if (!autoScrollOn) return;
+  if (previousFrameTime && !autoScrollPaused) {
+    scrollRemainder += ((timestamp - previousFrameTime) / 1000) * AUTOSCROLL.speed;
+    const pixels = Math.floor(scrollRemainder);
+    if (pixels > 0) {
+      scrollRemainder -= pixels;
+      window.scrollBy(0, pixels);
+    }
+    const root = document.documentElement;
+    if (window.innerHeight + window.scrollY >= roottype]); arr.unshift({ ...data, time: Date.now() }); saveLocal(LS[type], arr.slice(0, 200)); return; }
   // text/plain menghindari preflight CORS pada Apps Script
   const r = await fetch(CONFIG.backendUrl, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type, ...data }) });
   const j = await r.json(); if (!j.ok) throw new Error(j.error || "Gagal menyimpan");
