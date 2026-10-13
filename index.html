@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Hadi & Riya</title>
+<meta name="description" content="Undangan pemberkatan Hadi & Riya, 12 Desember 2026.">
+<meta property="og:title" content="Undangan Pernikahan Hadi & Riya">
+<meta property="og:description" content="Kami mengundang Anda di hari pemberkatan kami, 12 Desember 2026.">
+<meta property="og:image" content="foto1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<div id="bg" class="bg" aria-hidden="true"></div>
+
+<!-- COVER -->
+<section id="cover" class="cover">
+  <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span><span class="leaf l4"></span>
+  <div class="cover-in">
+    <p class="small">The Wedding Of</p>
+    <h1 class="script" data-bind="shortNames"></h1>
+    <p class="date-line" data-bind="dateShort"></p>
+    <div class="guest"><span>Kepada Yth.</span><strong id="guestName">Tamu Undangan</strong></div>
+    <button id="openBtn" class="btn">Buka Undangan</button>
+  </div>
+</section>
+
+<!-- MUSIK -->
+<button id="musicBtn" class="music" aria-label="Putar atau jeda musik" hidden>♪</button>
+<button id="scrollBtn" class="music scroll" aria-label="Nyalakan atau matikan gulir otomatis" aria-pressed="false" hidden>⇩</button>
+<div id="fall" class="fall" aria-hidden="true"></div>
+<div id="progress" class="progress"></div>
+<audio id="bgm" loop preload="none"></audio>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span><span class="leaf l4"></span>
+    <div class="hero-in reveal">
+      <p class="small">Kami Menikah</p>
+      <h2 class="script big" data-bind="shortNames"></h2>
+      <p class="date-line" data-bind="dateLong"></p>
+      <div class="countdown" id="countdown" aria-live="off">
+        <div><b id="cd-d">0</b><span>Hari</span></div>
+        <div><b id="cd-h">0</b><span>Jam</span></div>
+        <div><b id="cd-m">0</b><span>Menit</span></div>
+        <div><b id="cd-s">0</b><span>Detik</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SALAM PEMBUKA -->
+  <section class="sec" id="greeting">
+    <div class="wrap narrow reveal center-text">
+      <p class="small" id="gSalam"></p>
+      <h2 class="title" id="gTitle"></h2>
+      <p id="gText"></p>
+      <p class="verse" id="gVerse"></p>
+    </div>
+  </section>
+
+  <!-- MEMPELAI -->
+  <section class="sec" id="couple">
+    <div class="wrap reveal">
+      <p class="quote">“Dua hati yang bertemu dengan tulus, tumbuh bersama seperti akar yang saling menguatkan.”</p>
+      <div class="couple">
+        <figure class="person">
+          <div class="arch"><img id="groomPhoto" alt="Foto mempelai pria" loading="lazy"></div>
+          <figcaption><h3 class="script" id="groomShort"></h3><p id="groomFull"></p><small id="groomParents"></small></figcaption>
+        </figure>
+        <span class="amp script">&</span>
+        <figure class="person">
+          <div class="arch"><img id="bridePhoto" alt="Foto mempelai wanita" loading="lazy"></div>
+          <figcaption><h3 class="script" id="brideShort"></h3><p id="brideFull"></p><small id="brideParents"></small></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACARA -->
+  <section class="sec dark" id="event">
+    <div class="wrap reveal">
+      <h2 class="title">Waktu & Tempat</h2>
+      <div class="event-card">
+        <h3 class="script" id="eventType"></h3>
+        <p class="ev-date" id="eventDate"></p>
+        <p class="ev-time" id="eventTime"></p>
+        <hr class="gold-line">
+        <p class="ev-place" id="eventPlace"></p>
+        <p class="ev-addr" id="eventAddr"></p>
+        <div class="btn-row">
+          <a id="mapBtn" class="btn" target="_blank" rel="noopener">Buka Google Maps</a>
+          <a id="calBtn" class="btn ghost" target="_blank" rel="noopener">Simpan ke Kalender</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERITA -->
+  <section class="sec" id="story">
+    <div class="wrap reveal">
+      <h2 class="title" id="storyTitle">Our Love Story</h2>
+      <p class="story-sub script" id="storySub"></p>
+      <p class="story-intro" id="storyIntro"></p>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section class="sec tint" id="gallery">
+    <div class="wrap reveal">
+      <h2 class="title">Galeri</h2>
+      <div class="grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="sec" id="rsvp">
+    <div class="wrap narrow reveal">
+      <h2 class="title">Konfirmasi Kehadiran</h2>
+      <form id="rsvpForm" class="form" novalidate>
+        <label>Nama<input name="name" required maxlength="60" autocomplete="name"></label>
+        <label>Kehadiran
+          <select name="attend" required>
+            <option value="Hadir">Saya akan hadir</option>
+            <option value="Tidak Hadir">Maaf, saya tidak bisa hadir</option>
+            <option value="Belum Pasti">Belum pasti</option>
+          </select>
+        </label>
+        <label>Jumlah tamu<input name="guests" type="number" min="1" max="5" value="1"></label>
+        <button class="btn" type="submit">Kirim Konfirmasi</button>
+        <p class="note" id="rsvpNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- UCAPAN -->
+  <section class="sec tint" id="wishes">
+    <div class="wrap narrow reveal">
+      <h2 class="title">Ucapan & Doa</h2>
+      <form id="wishForm" class="form" novalidate>
+        <label>Nama<input name="name" required maxlength="60"></label>
+        <label>Ucapan<textarea name="message" rows="4" required maxlength="300"></textarea></label>
+        <button class="btn" type="submit">Kirim Ucapan</button>
+        <p class="note" id="wishNote" role="status"></p>
+      </form>
+      <p class="note storage" id="storageInfo"></p>
+      <ul class="wish-list" id="wishList"></ul>
+    </div>
+  </section>
+
+  <!-- HADIAH -->
+  <section class="sec" id="gift">
+    <div class="wrap narrow reveal">
+      <h2 class="title">Hadiah Digital</h2>
+      <p class="center-text">Kehadiran Anda adalah hadiah terbaik. Bila ingin berbagi kebahagiaan, Anda dapat mengirimkannya melalui:</p>
+      <div id="giftList" class="gifts"></div>
+    </div>
+  </section>
+
+  <section class="closing" id="closing"><p id="closingText" class="reveal"></p></section>
+
+  <footer class="foot">
+    <p>Terima kasih atas doa dan kehadiran Anda.</p>
+    <h2 class="script big" data-bind="shortNames"></h2>
+    <small>Dengan hormat, <span data-bind="fullNames"></span></small>
+  </footer>
+</main>
+
+<nav class="bottom-nav" id="bottomNav" hidden aria-label="Navigasi">
+  <a href="#home">Beranda</a><a href="#couple">Mempelai</a><a href="#event">Acara</a><a href="#gallery">Galeri</a><a href="#wishes">Ucapan</a>
+</nav>
+
+<div id="lightbox" class="lightbox" hidden><img alt=""><button aria-label="Tutup">×</button></div>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+        </html>
+      
